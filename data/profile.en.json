@@ -3,14 +3,13 @@
   "title": "M.Sc. Computer Science",
   "bio": "Computer Scientist focused on Artificial Intelligence, Deep Learning, and Software Engineering. Experienced in research, development, and teaching, with a passion for building robust systems and sharing knowledge.",
   "location": "Immenstaad am Bodensee, Germany",
-  "email": "Zacharias.Haeringer@gmx.de",
+  "email": "zachi.mohn@gmail.com",
   "profileImage": "assets/images/profile.png",
   "links": [
     { "label": "GitHub", "url": "https://github.com/ZachiTF", "icon": "terminal" },
-    { "label": "LinkedIn", "url": "https://linkedin.com/in/zaczaczac", "icon": "link" },
-    { "label": "ResearchGate", "url": "https://www.researchgate.net/profile/Zacharias-Haeringer", "icon": "menu_book" }
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/zac-zac/", "icon": "link" }
   ],
   "heroTagline": "AI, Research & Robust Software.",
-  "heroSubtitle": "M.Sc. in Computer Science with specialization in AI. Experienced in deep learning, VR/BCI, and collaborative software projects. Always learning, always building.",
+  "heroSubtitle": "Curiosity prevails.",
   "heroBadge": "Portfolio"
 }

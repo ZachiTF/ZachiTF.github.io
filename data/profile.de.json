@@ -3,14 +3,13 @@
   "title": "M.Sc. Informatik",
   "bio": "Informatiker mit Fokus auf Künstliche Intelligenz, Deep Learning und Software Engineering. Erfahrung in Forschung, Entwicklung und Lehre, mit Leidenschaft für robuste Systeme und Wissensaustausch.",
   "location": "Immenstaad am Bodensee, Deutschland",
-  "email": "Zacharias.Haeringer@gmx.de",
+  "email": "zachi.mohn@gmail.com",
   "profileImage": "assets/images/profile.png",
   "links": [
     { "label": "GitHub", "url": "https://github.com/ZachiTF", "icon": "terminal" },
-    { "label": "LinkedIn", "url": "https://linkedin.com/in/zacharias-haeringer", "icon": "link" },
-    { "label": "ResearchGate", "url": "https://www.researchgate.net/profile/Zacharias-Haeringer", "icon": "menu_book" }
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/zac-zac/", "icon": "link" }
   ],
   "heroTagline": "KI, Forschung & Robuste Software.",
-  "heroSubtitle": "M.Sc. Informatik, spezialisiert auf KI. Erfahrung in Deep Learning, VR/BCI und kollaborativen Softwareprojekten. Immer lernend, immer am Bauen.",
+  "heroSubtitle": "Neugier siegt.",
   "heroBadge": "Portfolio"
 }
