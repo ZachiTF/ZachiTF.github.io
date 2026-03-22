@@ -1,5 +1,6 @@
 const THEME_KEY = "theme";
 const LANG_KEY = "portfolio-lang";
+const TAXONOMY_FILE = "data/skill-taxonomy.json";
 
 const DATA_FILES = {
   en: {
@@ -14,32 +15,32 @@ const DATA_FILES = {
 
 const UI_TEXT = {
   en: {
-    stackFiltering: "Stack Filtering",
+    stackFiltering: "Skill Groups",
     clearAll: "Clear All",
     connect: "Connect",
     contactPrompt: "Want to get in touch?",
     contactCta: "Contact me here",
     technicalBreakdown: "Technical Breakdown",
     filterStatus: (visible, total, filters) =>
-      `Showing ${visible} of ${total} projects matching: ${filters}`,
+      `Showing ${visible} of ${total} projects matching groups: ${filters}`,
     clearStatus: "Clear",
     loadError:
-      "Failed to load project data. Make sure language JSON files exist in the data folder.",
+      "Failed to load project data. Make sure language JSON files and skill-taxonomy.json exist in the data folder.",
     langTitle: "Switch language",
     nextLang: "Deutsch",
   },
   de: {
-    stackFiltering: "Technologie-Filter",
+    stackFiltering: "Skill-Gruppen",
     clearAll: "Alle löschen",
     connect: "Kontakt",
     contactPrompt: "Lust auf Austausch?",
     contactCta: "Hier kontaktieren",
     technicalBreakdown: "Technischer Einblick",
     filterStatus: (visible, total, filters) =>
-      `Zeige ${visible} von ${total} Projekten passend zu: ${filters}`,
+      `Zeige ${visible} von ${total} Projekten passend zu Gruppen: ${filters}`,
     clearStatus: "Zurücksetzen",
     loadError:
-      "Projektdaten konnten nicht geladen werden. Stelle sicher, dass die Sprach-JSON-Dateien im data-Ordner vorhanden sind.",
+      "Projektdaten konnten nicht geladen werden. Stelle sicher, dass die Sprach-JSON-Dateien und skill-taxonomy.json im data-Ordner vorhanden sind.",
     langTitle: "Sprache wechseln",
     nextLang: "English",
   },
@@ -49,6 +50,7 @@ const state = {
   lang: "en",
   profile: null,
   projects: [],
+  taxonomy: null,
   activeFilters: new Set(),
 };
 
@@ -74,11 +76,13 @@ function bindGlobalEvents() {
 
     const filterBtn = e.target.closest(".filter-tag");
     if (filterBtn) {
-      const tech = filterBtn.getAttribute("data-tech");
-      if (state.activeFilters.has(tech)) {
-        state.activeFilters.delete(tech);
+      const groupId = filterBtn.getAttribute("data-group");
+      if (!groupId) return;
+
+      if (state.activeFilters.has(groupId)) {
+        state.activeFilters.delete(groupId);
       } else {
-        state.activeFilters.add(tech);
+        state.activeFilters.add(groupId);
       }
       applyFilters();
       return;
@@ -111,14 +115,24 @@ function toggleLanguage() {
   loadAndRender(nextLang);
 }
 
+async function loadTaxonomy() {
+  if (state.taxonomy) return state.taxonomy;
+  const response = await fetch(TAXONOMY_FILE);
+  const taxonomy = await response.json();
+  state.taxonomy = taxonomy;
+  return taxonomy;
+}
+
 async function loadAndRender(lang) {
   const files = DATA_FILES[lang] || DATA_FILES.en;
   const t = UI_TEXT[lang] || UI_TEXT.en;
 
   try {
-    const [profileResponse, projectsResponse] = await Promise.all([
+    const taxonomyPromise = loadTaxonomy();
+    const [profileResponse, projectsResponse, taxonomy] = await Promise.all([
       fetch(files.profile),
       fetch(files.projects),
+      taxonomyPromise,
     ]);
 
     const [profile, projects] = await Promise.all([
@@ -129,14 +143,15 @@ async function loadAndRender(lang) {
     state.lang = lang;
     state.profile = profile;
     state.projects = projects;
+    state.taxonomy = taxonomy;
 
     localStorage.setItem(LANG_KEY, lang);
     document.documentElement.lang = lang;
     document.title = profile.name || "Portfolio";
 
-    renderSidebar(profile, projects, t);
+    renderSidebar(profile, projects, taxonomy, t, lang);
     renderHero(profile);
-    renderProjects(projects, t);
+    renderProjects(projects, taxonomy, t);
     updateStaticLanguageLabels(t);
     updateThemeIcon();
     updateLanguageButtons(t);
@@ -153,9 +168,9 @@ async function loadAndRender(lang) {
   }
 }
 
-function renderSidebar(profile, projects, t) {
-  const allTags = [...new Set(projects.flatMap((project) => project.tags || []))];
-  const sidebarHTML = buildSidebarContent(profile, allTags, t);
+function renderSidebar(profile, projects, taxonomy, t, lang) {
+  const groups = collectAvailableGroups(projects, taxonomy, lang);
+  const sidebarHTML = buildSidebarContent(profile, groups, t);
 
   const sidebar = document.getElementById("sidebar-content");
   if (sidebar) {
@@ -168,7 +183,29 @@ function renderSidebar(profile, projects, t) {
   }
 }
 
-function buildSidebarContent(profile, allTags, t) {
+function collectAvailableGroups(projects, taxonomy, lang) {
+  const usedGroupIds = new Set();
+
+  projects.forEach((project) => {
+    (project.tags || []).forEach((tag) => {
+      usedGroupIds.add(resolveGroupId(tag, taxonomy));
+    });
+  });
+
+  const order = taxonomy.groupOrder || Object.keys(taxonomy.groups || {});
+  return order
+    .filter((groupId) => usedGroupIds.has(groupId) && taxonomy.groups?.[groupId])
+    .map((groupId) => {
+      const group = taxonomy.groups[groupId];
+      return {
+        id: groupId,
+        label: group.label?.[lang] || group.label?.en || groupId,
+        cssClass: group.cssClass || "",
+      };
+    });
+}
+
+function buildSidebarContent(profile, groups, t) {
   const linksHTML = (profile.links || [])
     .map(
       (link) => `
@@ -179,10 +216,10 @@ function buildSidebarContent(profile, allTags, t) {
     )
     .join("");
 
-  const filterTagsHTML = allTags
+  const filterTagsHTML = groups
     .map(
-      (tag) => `
-      <button class="filter-tag" data-tech="${escapeAttr(tag)}">${escapeHTML(tag)}</button>`
+      (group) => `
+      <button class="filter-tag ${escapeAttr(group.cssClass)}" data-group="${escapeAttr(group.id)}">${escapeHTML(group.label)}</button>`
     )
     .join("");
 
@@ -256,17 +293,22 @@ function renderHero(profile) {
   if (subtitle) subtitle.textContent = profile.heroSubtitle || "";
 }
 
-function renderProjects(projects, t) {
+function renderProjects(projects, taxonomy, t) {
   const list = document.getElementById("project-list");
   if (!list) return;
 
   list.innerHTML = projects
     .map((project) => {
-      const tagsHTML = (project.tags || [])
-        .map((tag) => `<span class="project-tag">${escapeHTML(tag)}</span>`)
-        .join("");
+      const groupIds = getProjectGroupIds(project, taxonomy);
+      const groupStack = groupIds.join(",");
 
-      const techStack = (project.tags || []).map((tag) => tag.toLowerCase()).join(",");
+      const tagsHTML = (project.tags || [])
+        .map((tag) => {
+          const groupId = resolveGroupId(tag, taxonomy);
+          const cssClass = taxonomy.groups?.[groupId]?.cssClass || "";
+          return `<span class="project-tag ${escapeAttr(cssClass)}">${escapeHTML(tag)}</span>`;
+        })
+        .join("");
 
       const imageHTML = project.image
         ? `<div class="details-image"><img src="${escapeAttr(project.image)}" alt="${escapeAttr(
@@ -282,7 +324,7 @@ function renderProjects(projects, t) {
           : "";
 
       return `
-        <article class="project-card" data-tech-stack="${escapeAttr(techStack)}">
+        <article class="project-card" data-group-stack="${escapeAttr(groupStack)}">
           <div class="project-grid">
             <div class="project-meta">
               <span class="project-id font-label">${escapeHTML(project.id)} / ${escapeHTML(
@@ -309,6 +351,41 @@ function renderProjects(projects, t) {
         </article>`;
     })
     .join("");
+}
+
+function getProjectGroupIds(project, taxonomy) {
+  const ids = new Set();
+  (project.tags || []).forEach((tag) => ids.add(resolveGroupId(tag, taxonomy)));
+  return Array.from(ids);
+}
+
+function normalizeSkillLabel(skill) {
+  return String(skill || "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+function resolveGroupId(skill, taxonomy) {
+  const normalized = normalizeSkillLabel(skill);
+  const groupId = taxonomy.skillToGroup?.[normalized];
+  if (groupId && taxonomy.groups?.[groupId]) {
+    return groupId;
+  }
+  return taxonomy.fallbackGroup && taxonomy.groups?.[taxonomy.fallbackGroup]
+    ? taxonomy.fallbackGroup
+    : Object.keys(taxonomy.groups || {})[0] || "";
+}
+
+function getFilterLabels() {
+  if (!state.taxonomy) return [];
+  return Array.from(state.activeFilters)
+    .map((groupId) => {
+      const group = state.taxonomy.groups?.[groupId];
+      if (!group) return null;
+      return group.label?.[state.lang] || group.label?.en || groupId;
+    })
+    .filter(Boolean);
 }
 
 function updateStaticLanguageLabels(t) {
@@ -346,9 +423,9 @@ function applyFilters() {
 
     let visibleCount = 0;
     cards.forEach((card) => {
-      const stack = (card.getAttribute("data-tech-stack") || "").split(",");
+      const stack = (card.getAttribute("data-group-stack") || "").split(",");
       const matches = Array.from(state.activeFilters).some((filter) =>
-        stack.includes(filter.toLowerCase())
+        stack.includes(filter)
       );
       card.classList.toggle("hidden-filtered", !matches);
       if (matches) visibleCount += 1;
@@ -356,7 +433,7 @@ function applyFilters() {
 
     if (statusBar) {
       const t = UI_TEXT[state.lang] || UI_TEXT.en;
-      const filtersText = Array.from(state.activeFilters).join(", ");
+      const filtersText = getFilterLabels().join(", ");
       statusBar.classList.add("active");
       const statusText = statusBar.querySelector(".filter-status-text");
       if (statusText) {
@@ -366,8 +443,8 @@ function applyFilters() {
   }
 
   document.querySelectorAll(".filter-tag").forEach((button) => {
-    const tech = button.getAttribute("data-tech");
-    button.classList.toggle("active", state.activeFilters.has(tech));
+    const groupId = button.getAttribute("data-group");
+    button.classList.toggle("active", state.activeFilters.has(groupId));
   });
 }
 
@@ -379,8 +456,8 @@ function openMobileDrawer() {
 
   mirror.innerHTML = sidebarContent.innerHTML;
   mirror.querySelectorAll(".filter-tag").forEach((button) => {
-    const tech = button.getAttribute("data-tech");
-    if (state.activeFilters.has(tech)) {
+    const groupId = button.getAttribute("data-group");
+    if (state.activeFilters.has(groupId)) {
       button.classList.add("active");
     }
   });

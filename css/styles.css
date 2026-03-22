@@ -26,6 +26,27 @@
   --color-filter-active-bg: #545f73;
   --color-filter-active-text: #f6f7ff;
   --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-group-programming-bg: #dbeafe;
+  --color-group-programming-text: #1e3a8a;
+  --color-group-programming-border: #93c5fd;
+  --color-group-ai-ml-bg: #ede9fe;
+  --color-group-ai-ml-text: #5b21b6;
+  --color-group-ai-ml-border: #c4b5fd;
+  --color-group-algorithms-bg: #dcfce7;
+  --color-group-algorithms-text: #166534;
+  --color-group-algorithms-border: #86efac;
+  --color-group-web-docs-bg: #ffe4e6;
+  --color-group-web-docs-text: #9f1239;
+  --color-group-web-docs-border: #fda4af;
+  --color-group-game-dev-bg: #fef3c7;
+  --color-group-game-dev-text: #92400e;
+  --color-group-game-dev-border: #fcd34d;
+  --color-group-devops-tools-bg: #e0f2fe;
+  --color-group-devops-tools-text: #0c4a6e;
+  --color-group-devops-tools-border: #7dd3fc;
+  --color-group-domain-bg: #f3e8ff;
+  --color-group-domain-text: #7e22ce;
+  --color-group-domain-border: #d8b4fe;
 }
 
 html.dark {
@@ -46,6 +67,27 @@ html.dark {
   --color-filter-active-bg: #8899b0;
   --color-filter-active-text: #0b0f10;
   --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-group-programming-bg: #1e3a8a;
+  --color-group-programming-text: #dbeafe;
+  --color-group-programming-border: #3b82f6;
+  --color-group-ai-ml-bg: #4c1d95;
+  --color-group-ai-ml-text: #ede9fe;
+  --color-group-ai-ml-border: #8b5cf6;
+  --color-group-algorithms-bg: #14532d;
+  --color-group-algorithms-text: #dcfce7;
+  --color-group-algorithms-border: #22c55e;
+  --color-group-web-docs-bg: #881337;
+  --color-group-web-docs-text: #ffe4e6;
+  --color-group-web-docs-border: #fb7185;
+  --color-group-game-dev-bg: #78350f;
+  --color-group-game-dev-text: #fef3c7;
+  --color-group-game-dev-border: #f59e0b;
+  --color-group-devops-tools-bg: #164e63;
+  --color-group-devops-tools-text: #e0f2fe;
+  --color-group-devops-tools-border: #0ea5e9;
+  --color-group-domain-bg: #581c87;
+  --color-group-domain-text: #f3e8ff;
+  --color-group-domain-border: #a855f7;
 }
 
 body {
@@ -273,6 +315,7 @@ button {
   font-size: 0.625rem;
   font-weight: 700;
   border-radius: 0.125rem;
+  border: 1px solid var(--color-border);
   background-color: var(--color-bg-tag);
   color: var(--color-text-secondary);
   text-transform: uppercase;
@@ -287,6 +330,55 @@ button {
 .filter-tag.active {
   background-color: var(--color-filter-active-bg) !important;
   color: var(--color-filter-active-text) !important;
+}
+
+.filter-tag.skill-group-programming,
+.project-tag.skill-group-programming {
+  background-color: var(--color-group-programming-bg);
+  color: var(--color-group-programming-text);
+  border-color: var(--color-group-programming-border);
+}
+
+.filter-tag.skill-group-ai-ml,
+.project-tag.skill-group-ai-ml {
+  background-color: var(--color-group-ai-ml-bg);
+  color: var(--color-group-ai-ml-text);
+  border-color: var(--color-group-ai-ml-border);
+}
+
+.filter-tag.skill-group-algorithms,
+.project-tag.skill-group-algorithms {
+  background-color: var(--color-group-algorithms-bg);
+  color: var(--color-group-algorithms-text);
+  border-color: var(--color-group-algorithms-border);
+}
+
+.filter-tag.skill-group-web-docs,
+.project-tag.skill-group-web-docs {
+  background-color: var(--color-group-web-docs-bg);
+  color: var(--color-group-web-docs-text);
+  border-color: var(--color-group-web-docs-border);
+}
+
+.filter-tag.skill-group-game-dev,
+.project-tag.skill-group-game-dev {
+  background-color: var(--color-group-game-dev-bg);
+  color: var(--color-group-game-dev-text);
+  border-color: var(--color-group-game-dev-border);
+}
+
+.filter-tag.skill-group-devops-tools,
+.project-tag.skill-group-devops-tools {
+  background-color: var(--color-group-devops-tools-bg);
+  color: var(--color-group-devops-tools-text);
+  border-color: var(--color-group-devops-tools-border);
+}
+
+.filter-tag.skill-group-domain,
+.project-tag.skill-group-domain {
+  background-color: var(--color-group-domain-bg);
+  color: var(--color-group-domain-text);
+  border-color: var(--color-group-domain-border);
 }
 
 /* ===== Connect links ===== */

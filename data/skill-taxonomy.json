@@ -1,0 +1,91 @@
+{
+  "groupOrder": [
+    "programming",
+    "ai_ml",
+    "algorithms",
+    "web_docs",
+    "game_dev",
+    "devops_tools",
+    "domain"
+  ],
+  "groups": {
+    "programming": {
+      "label": { "en": "Programming", "de": "Programmierung" },
+      "cssClass": "skill-group-programming"
+    },
+    "ai_ml": {
+      "label": { "en": "AI / ML", "de": "KI / ML" },
+      "cssClass": "skill-group-ai-ml"
+    },
+    "algorithms": {
+      "label": { "en": "Algorithms", "de": "Algorithmen" },
+      "cssClass": "skill-group-algorithms"
+    },
+    "web_docs": {
+      "label": { "en": "Web / Docs", "de": "Web / Doku" },
+      "cssClass": "skill-group-web-docs"
+    },
+    "game_dev": {
+      "label": { "en": "Game Dev", "de": "Game Dev" },
+      "cssClass": "skill-group-game-dev"
+    },
+    "devops_tools": {
+      "label": { "en": "DevOps / Tools", "de": "DevOps / Tools" },
+      "cssClass": "skill-group-devops-tools"
+    },
+    "domain": {
+      "label": { "en": "Domain", "de": "Domäne" },
+      "cssClass": "skill-group-domain"
+    }
+  },
+  "skillToGroup": {
+    "python": "programming",
+    "c#": "programming",
+    "c++": "programming",
+    "javascript": "programming",
+    "julia": "programming",
+    "html": "programming",
+    "css": "programming",
+    "sql": "programming",
+
+    "deep learning": "ai_ml",
+    "computer vision": "ai_ml",
+    "reinforcement learning": "ai_ml",
+    "bci": "ai_ml",
+    "eeg": "ai_ml",
+
+    "algorithm design": "algorithms",
+    "algorithmendesign": "algorithms",
+    "distributed algorithms": "algorithms",
+    "verteilte algorithmen": "algorithms",
+    "mathematical analysis": "algorithms",
+    "mathematische analyse": "algorithms",
+
+    "rest api integration": "web_docs",
+    "markdown": "web_docs",
+    "mkdocs": "web_docs",
+    "documentation": "web_docs",
+    "dokumentation": "web_docs",
+
+    "unity": "game_dev",
+    "godot": "game_dev",
+    "game design": "game_dev",
+    "tilemap": "game_dev",
+    "procedural generation": "game_dev",
+    "prozedurale generierung": "game_dev",
+    "visualization": "game_dev",
+    "visualisierung": "game_dev",
+
+    "docker": "devops_tools",
+    "ci/cd": "devops_tools",
+    "gitlab pages": "devops_tools",
+    "project management": "devops_tools",
+    "projektmanagement": "devops_tools",
+    "scientific writing": "devops_tools",
+    "wissenschaftliches schreiben": "devops_tools",
+
+    "dosimetry": "domain",
+    "dosimetrie": "domain"
+  },
+  "fallbackGroup": "domain"
+}
