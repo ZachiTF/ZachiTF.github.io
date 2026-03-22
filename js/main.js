@@ -1,3 +1,14 @@
+// Set page title from profile.json name
+fetch('data/profile.json')
+  .then(response => response.json())
+  .then(data => {
+    if (data.name) {
+      document.title = data.name;
+      // Optionally update brand name in header if desired:
+      const brand = document.getElementById('mobile-brand');
+      if (brand) brand.textContent = data.name;
+    }
+  });
 document.addEventListener("DOMContentLoaded", () => {
   let profileData = {};
   let activeFilters = new Set();
