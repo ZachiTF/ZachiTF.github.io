@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..600&family=Manrope:wght@400..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <!-- Mobile Top Bar -->
+  <header class="mobile-header">
+    <span class="font-headline" id="mobile-brand">Portfolio</span>
+    <div class="mobile-header-actions">
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
+        <span class="material-symbols-outlined">dark_mode</span>
+      </button>
+      <button id="mobile-menu-btn" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer-panel" id="drawer-mirror"></aside>
+  </div>
+
+  <!-- Page wrapper -->
+  <div class="site-wrapper">
+
+    <!-- Sidebar (desktop) -->
+    <aside class="sidebar" id="sidebar-content">
+      <!-- Rendered by JS from profile.json -->
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="hero">
+        <div class="hero-badge font-label" id="hero-badge"></div>
+        <h2 class="font-headline" id="hero-tagline"></h2>
+        <p id="hero-subtitle"></p>
+      </header>
+
+      <!-- Filter status bar (visible when filtering) -->
+      <div class="filter-status" id="filter-status">
+        <span class="material-symbols-outlined" style="font-size:1rem">filter_alt</span>
+        <span class="filter-status-text"></span>
+        <span class="filter-status-clear">Clear</span>
+      </div>
+
+      <div class="project-list" id="project-list">
+        <!-- Rendered by JS from projects.json -->
+      </div>
+
+      <footer class="site-footer font-label">
+        <p>&copy; 2025 Portfolio</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
