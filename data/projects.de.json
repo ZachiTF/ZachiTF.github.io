@@ -1,0 +1,128 @@
+[
+  {
+    "id": "01",
+    "category": "Deep Learning / Medizinische KI",
+    "title": "Masterarbeit: Deep Learning für Dosisvorhersage",
+    "tags": ["Python", "PyTorch", "Julia", "Dosimetrie"],
+    "description": "Untersuchung von Deep-Learning-Methoden zur Dosisvorhersage aus spärlichen Messungen in der Strahlentherapie.",
+    "longDescription": "Masterarbeit in Zusammenarbeit mit PTW Freiburg. Entwicklung und Benchmarking von neuronalen Netzen zur Vorhersage von Strahlendosen aus wenigen Messpunkten. Interdisziplinäre Machbarkeitsstudie mit Fokus auf medizinische Anwendung und KI.",
+    "bullets": [
+      "Vergleich verschiedener Netzwerkarchitekturen (CNNs, U-Nets)",
+      "End-to-End Datenpipeline von Messdaten bis Evaluation",
+      "Note: 1,3"
+    ],
+    "image": ""
+  },
+  {
+    "id": "02",
+    "category": "Deep Learning / Benchmarking",
+    "title": "Fast Optimizer Benchmark (FOB)",
+    "tags": ["Python", "PyTorch", "PyTorch Lightning", "Deep Learning"],
+    "description": "Framework zum Benchmarken von Deep-Learning-Optimierern.",
+    "longDescription": "Teamprojekt (3 Personen) an der Universität Freiburg. Entwicklung eines Frameworks zur systematischen Evaluation und Vergleich von Optimierern für Deep Learning. Veröffentlichung als Workshop-Paper, inklusive Implementierung verschiedener Pipelines und Domänen.",
+    "bullets": [
+      "Vergleich und Analyse von Optimierern",
+      "Automatisierte Experimente und Auswertung",
+      "arXiv: https://doi.org/10.48550/arXiv.2406.18701"
+    ],
+    "image": ""
+  },
+  {
+    "id": "03",
+    "category": "Computer Vision / Deep Learning",
+    "title": "Deep Learning Lab: Unsicherheitsabschätzung für Monokulare Tiefenschätzung",
+    "tags": ["Python", "Deep Learning", "Computer Vision", "Reinforcement Learning"],
+    "description": "Abschlussprojekt im Deep Learning Lab: Unsicherheitsabschätzung für Monokulare Tiefenschätzung.",
+    "longDescription": "Praktischer Kurs zu Deep Learning, Reinforcement Learning und Computer Vision. Abschlussprojekt: Entwicklung eines Modells zur Unsicherheitsabschätzung bei der monokularen Tiefenschätzung aus Bildern.",
+    "bullets": [
+      "Implementierung und Training von CNNs",
+      "Evaluation von Unsicherheitsmaßen",
+      "Anwendung auf reale Bilddaten"
+    ],
+    "image": ""
+  },
+  {
+    "id": "04",
+    "category": "Algorithmendesign / Verteilte Systeme",
+    "title": "Bachelorarbeit: Distributed Graph Algorithms in the LogP Model",
+    "tags": ["Algorithmendesign", "Verteilte Algorithmen", "Mathematische Analyse"],
+    "description": "Entwurf und Analyse verteilter Algorithmen im LogP-Modell.",
+    "longDescription": "Bachelorarbeit an der Universität Freiburg. Mathematische Herleitung und Analyse von Algorithmen für verteilte Systeme im LogP-Modell. Fokus auf theoretische Informatik und Komplexitätsanalyse.",
+    "bullets": [
+      "Entwurf und Analyse neuer Algorithmen",
+      "Mathematische Komplexitätsberechnung",
+      "Schwerpunkt auf Theorie"
+    ],
+    "image": ""
+  },
+  {
+    "id": "05",
+    "category": "Prozedurale Generierung / Game Dev",
+    "title": "Procedural Tilemap Generation using Markov-Chain Wave Function Collapse",
+    "tags": ["Unity", "C#", "Algorithmendesign", "Prozedurale Generierung", "Tilemap", "Visualisierung"],
+    "description": "Tool zur prozeduralen Generierung von Tilemaps in Unity.",
+    "longDescription": "Bachelorprojekt: Entwicklung eines Tools zur prozeduralen Generierung von Tilemaps mittels Markov-Chain Wave Function Collapse Algorithmus. Implementierung und Visualisierung in Unity.",
+    "bullets": [
+      "Algorithmus-Implementierung in Unity",
+      "Visualisierung und Tool-Design",
+      "Prozedurale Generierung für Spiele"
+    ],
+    "image": ""
+  },
+  {
+    "id": "06",
+    "category": "Game Dev / Teamwork",
+    "title": "Game Jams",
+    "tags": ["Unity", "C#", "Game Design", "CI/CD", "Projektmanagement"],
+    "description": "Teilnahme an mehreren Game Jams mit kleinen Teams.",
+    "longDescription": "Wochenend-Events zur Entwicklung eines kompletten Spiels im kleinen Team (2 bis ~10 Personen). Entwicklung und Nutzung von automatisierten Build-Pipelines für schnelle Iteration.",
+    "bullets": [
+      "Teamarbeit und schnelle Prototypen",
+      "Automatisierte Build-Pipelines",
+      "Game Design und Entwicklung"
+    ],
+    "image": ""
+  },
+  {
+    "id": "07",
+    "category": "Web / Tools",
+    "title": "MKDocs Learning Websites",
+    "tags": ["Markdown", "MkDocs", "GitLab Pages", "Dokumentation"],
+    "description": "Vorlesungszusammenfassungen und Hosting mit MkDocs.",
+    "longDescription": "Persönliches Projekt: Erstellung und Hosting von Vorlesungszusammenfassungen für Kommilitonen mit MkDocs und GitLab Pages. Inhalte als Markdown-Dateien geschrieben.",
+    "bullets": [
+      "Markdown-basierte Dokumentation",
+      "Deployment auf GitLab Pages",
+      "Nützlich für Studium und Lehre"
+    ],
+    "image": ""
+  },
+  {
+    "id": "08",
+    "category": "Web / Tools",
+    "title": "Progress Tracker Web-App",
+    "tags": ["JavaScript", "HTML", "CSS", "REST API Integration"],
+    "description": "Web-Tool zur Fortschrittsverwaltung für ein Online-Spiel.",
+    "longDescription": "Single Page Application, gehostet als GitHub Page; genutzt von Freunden und mir. Features: Filter, lokale Speicherung, Export/Import.",
+    "bullets": [
+      "SPA mit Filter- und Exportfunktion",
+      "Lokale Speicherung im Browser",
+      "REST API Integration"
+    ],
+    "image": ""
+  },
+  {
+    "id": "09",
+    "category": "Game Dev / KI",
+    "title": "Indie Game Development",
+    "tags": ["Godot", "C#", "Python", "Reinforcement Learning", "Docker"],
+    "description": "Eigenständige Entwicklung eines Videospiels im Zwei-Personen-Team.",
+    "longDescription": "Laufendes Projekt: Entwicklung eines Videospiels mit dem Ziel der Veröffentlichung auf Steam. Experimente mit Reinforcement Learning und Containerisierung der Lernumgebung.",
+    "bullets": [
+      "Game Design und Entwicklung in Godot",
+      "Reinforcement Learning für Spielmechaniken",
+      "Docker-basierte Entwicklungsumgebung"
+    ],
+    "image": ""
+  }
+]

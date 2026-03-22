@@ -199,6 +199,16 @@ button {
   background-color: var(--color-bg-tag);
 }
 
+.lang-toggle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.lang-toggle:hover {
+  background-color: var(--color-bg-tag);
+}
+
 /* ===== Stack Filtering ===== */
 .filter-section {
   padding-top: 1rem;
