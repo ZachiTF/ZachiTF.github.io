@@ -4,6 +4,8 @@
 
 set -euo pipefail
 
+echo "Stamping lastEditedAt in profile JSON files..."
+
 DATE=$(date -u +"%Y-%m-%d")
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DATA_DIR="$SCRIPT_DIR/../data"

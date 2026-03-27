@@ -343,7 +343,7 @@ function renderHero(profile) {
   if (subtitle) subtitle.textContent = profile.heroSubtitle || "";
 }
 
-function renderProjects(projects, taxonomy, t) {
+function renderProjects(projects, taxonomy) {
   const list = document.getElementById("project-list");
   if (!list) return;
 
