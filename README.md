@@ -13,6 +13,7 @@ Grouping and color logic is centralized in:
 
 ### How it works
 
+- Use pre-commit to automatically stamp the date with each change
 - Every project keeps detailed raw tags (e.g. `Python`, `C#`, `Deep Learning`).
 - The UI maps each raw tag to a group via `skillToGroup` in `skill-taxonomy.json`.
 - Sidebar filters are shown by group (not by every single raw tag) to keep filtering clean.

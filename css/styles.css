@@ -681,12 +681,23 @@ button {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 1rem;
   max-width: 64rem;
 }
 
 .project-card {
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-card);
+  cursor: pointer;
+  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .project-card.hidden-filtered {
@@ -760,49 +771,55 @@ button {
   line-height: 1.7;
 }
 
-/* Details / expand section */
-.project-details {
-  background-color: var(--color-bg-details);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: border-color 0.3s;
+/* Expand arrow — bottom right of card */
+.project-card > .expand-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  transition: transform 0.3s, color 0.3s;
 }
 
-.project-details:hover {
-  border-color: var(--color-border);
-}
-
-.project-details summary {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.875rem;
+.project-card:hover > .expand-icon {
   color: var(--color-accent);
 }
 
-.project-details summary::-webkit-details-marker {
-  display: none;
-}
-
-.project-details summary .expand-icon {
-  transition: transform 0.3s;
-}
-
-.project-details[open] summary .expand-icon {
+.project-card.open > .expand-icon {
   transform: rotate(180deg);
 }
 
+/* Expandable content area */
+.project-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.project-card.open .project-expand {
+  grid-template-rows: 1fr;
+}
+
+.project-expand > .details-content {
+  overflow: hidden;
+}
+
 .details-content {
-  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-top: 0;
+  transition: padding-top 0.35s ease;
 }
+
+.project-card.open .details-content {
+  padding-top: 1.5rem;
+}
+
+/* Details / expand section */
+
+/* Preserved for reference — old details/summary styles removed;
+   card-level toggle now uses .project-card.open + .project-expand */
 
 .details-image {
   aspect-ratio: 16 / 9;
@@ -833,6 +850,47 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.details-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.details-link:hover {
+  background-color: var(--color-accent-container);
+  border-color: var(--color-accent);
+}
+
+.details-link .material-symbols-outlined {
+  font-size: 0.875rem;
+}
+
+/* Utility classes (moved from inline styles) */
+.load-error {
+  color: var(--color-text-secondary);
+}
+
+.contact-cta-icon {
+  font-size: 1.125rem;
+}
+
+.filter-status-icon {
+  font-size: 1rem;
 }
 
 /* ===== Footer ===== */

@@ -59,9 +59,17 @@ const state = {
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   bindGlobalEvents();
+  setFooterYear();
   loadAndRender(getSavedLang());
   window.addEventListener("resize", updateSidebarScrollability);
 });
+
+function setFooterYear() {
+  const yearEl = document.getElementById("footer-year");
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+}
 
 function bindGlobalEvents() {
   document.addEventListener("click", (e) => {
@@ -104,6 +112,13 @@ function bindGlobalEvents() {
 
     if (e.target.closest("#drawer-overlay")) {
       closeMobileDrawer();
+      return;
+    }
+
+    const card = e.target.closest(".project-card");
+    if (card && !e.target.closest("a")) {
+      card.classList.toggle("open");
+      return;
     }
   });
 }
@@ -164,7 +179,7 @@ async function loadAndRender(lang) {
     console.error("Failed to load data:", err);
     const projectList = document.getElementById("project-list");
     if (projectList) {
-      projectList.innerHTML = `<p style="color:var(--color-text-secondary)">${escapeHTML(
+      projectList.innerHTML = `<p class="load-error">${escapeHTML(
         t.loadError
       )}</p>`;
     }
@@ -282,7 +297,7 @@ function buildSidebarContent(profile, groups, t) {
       <a href="mailto:${escapeAttr(profile.email)}" class="contact-cta">
         <span class="contact-cta-label">${escapeHTML(t.contactPrompt)}</span>
         <div class="contact-cta-content">
-          <span class="material-symbols-outlined" style="font-size:1.125rem">alternate_email</span>
+          <span class="material-symbols-outlined contact-cta-icon">alternate_email</span>
           <span>${escapeHTML(t.contactCta)}</span>
         </div>
       </a>
@@ -358,6 +373,19 @@ function renderProjects(projects, taxonomy, t) {
               .join("")}</ul>`
           : "";
 
+      const detailLinksHTML =
+        project.links && project.links.length
+          ? `<div class="details-links">${project.links
+              .map(
+                (link) =>
+                  `<a href="${escapeAttr(link.url)}" target="_blank" rel="noopener noreferrer" class="details-link">
+                    <span class="material-symbols-outlined">open_in_new</span>
+                    <span>${escapeHTML(link.label)}</span>
+                  </a>`
+              )
+              .join("")}</div>`
+          : "";
+
       return `
         <article class="project-card" data-group-stack="${escapeAttr(groupStack)}">
           <div class="project-grid">
@@ -370,19 +398,17 @@ function renderProjects(projects, taxonomy, t) {
             </div>
             <div class="project-body">
               <p class="project-description">${escapeHTML(project.description)}</p>
-              <details class="project-details">
-                <summary>
-                  <span>${escapeHTML(t.technicalBreakdown)}</span>
-                  <span class="material-symbols-outlined expand-icon">expand_more</span>
-                </summary>
+              <div class="project-expand">
                 <div class="details-content">
                   ${imageHTML}
                   <p class="details-text">${escapeHTML(project.longDescription)}</p>
                   ${bulletsHTML}
+                  ${detailLinksHTML}
                 </div>
-              </details>
+              </div>
             </div>
           </div>
+          <span class="material-symbols-outlined expand-icon">expand_more</span>
         </article>`;
     })
     .join("");
