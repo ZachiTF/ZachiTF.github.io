@@ -28,6 +28,7 @@ const UI_TEXT = {
       "Failed to load project data. Make sure language JSON files and skill-taxonomy.json exist in the data folder.",
     langTitle: "Switch language",
     nextLang: "Deutsch",
+    lastEditedAt: "Last edited",
   },
   de: {
     stackFiltering: "Skill-Gruppen",
@@ -43,6 +44,7 @@ const UI_TEXT = {
       "Projektdaten konnten nicht geladen werden. Stelle sicher, dass die Sprach-JSON-Dateien und skill-taxonomy.json im data-Ordner vorhanden sind.",
     langTitle: "Sprache wechseln",
     nextLang: "English",
+    lastEditedAt: "Zuletzt bearbeitet",
   },
 };
 
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   bindGlobalEvents();
   loadAndRender(getSavedLang());
+  window.addEventListener("resize", updateSidebarScrollability);
 });
 
 function bindGlobalEvents() {
@@ -181,6 +184,8 @@ function renderSidebar(profile, projects, taxonomy, t, lang) {
   if (mobileBrand) {
     mobileBrand.textContent = profile.name || "Portfolio";
   }
+
+  requestAnimationFrame(updateSidebarScrollability);
 }
 
 function collectAvailableGroups(projects, taxonomy, lang) {
@@ -223,6 +228,8 @@ function buildSidebarContent(profile, groups, t) {
     )
     .join("");
 
+  const lastEditedAt = formatLastEdited(profile.lastEditedAt, state.lang);
+
   return `
     <div class="sidebar-top">
       <div>
@@ -232,17 +239,21 @@ function buildSidebarContent(profile, groups, t) {
     profile.name
   )}" onerror="this.style.display='none'"/>
           </div>
-          <button class="theme-toggle" aria-label="Toggle theme">
-            <span class="material-symbols-outlined">dark_mode</span>
-          </button>
-          <button class="lang-toggle" aria-label="${escapeAttr(t.langTitle)}" title="${escapeAttr(
+          <div class="profile-info">
+            <div class="profile-controls">
+              <button class="theme-toggle" aria-label="Toggle theme">
+                <span class="material-symbols-outlined">dark_mode</span>
+              </button>
+              <button class="lang-toggle" aria-label="${escapeAttr(t.langTitle)}" title="${escapeAttr(
     t.nextLang
   )}">
-            <span class="material-symbols-outlined">translate</span>
-          </button>
+                <span class="material-symbols-outlined">translate</span>
+              </button>
+            </div>
+            <h1 class="profile-name font-headline">${escapeHTML(profile.name)}</h1>
+            <p class="profile-title font-label">${escapeHTML(profile.title)}</p>
+          </div>
         </div>
-        <h1 class="profile-name font-headline">${escapeHTML(profile.name)}</h1>
-        <p class="profile-title font-label">${escapeHTML(profile.title)}</p>
         <p class="profile-bio">${escapeHTML(profile.bio)}</p>
       </div>
 
@@ -277,10 +288,34 @@ function buildSidebarContent(profile, groups, t) {
       </a>
       <div class="sidebar-footer font-label">
         <span>${escapeHTML(profile.location)}</span>
-        <span class="dot"></span>
-        <span>${escapeHTML(profile.email)}</span>
+        ${lastEditedAt ? `<span class="dot"></span><span>${escapeHTML(`${t.lastEditedAt} ${lastEditedAt}`)}</span>` : ""}
       </div>
     </div>`;
+}
+
+function formatLastEdited(isoDate, lang) {
+  if (!isoDate) return "";
+  const date = new Date(isoDate);
+  if (Number.isNaN(date.getTime())) return isoDate;
+  const locale = lang === "de" ? "de-DE" : "en-US";
+  return new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
+function updateSidebarScrollability() {
+  const targets = [
+    document.getElementById("sidebar-content"),
+    document.getElementById("drawer-mirror"),
+  ];
+
+  targets.forEach((container) => {
+    if (!container) return;
+    const canScroll = container.scrollHeight > container.clientHeight + 1;
+    container.classList.toggle("is-scrollable", canScroll);
+  });
 }
 
 function renderHero(profile) {
