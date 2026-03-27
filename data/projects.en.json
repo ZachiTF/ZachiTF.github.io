@@ -7,8 +7,8 @@
     "description": "Investigation of deep learning methods for dose prediction from sparse measurements in radiotherapy.",
     "longDescription": "Master's thesis in collaboration with PTW Freiburg. Built and benchmarked neural networks to predict radiation dose distributions from sparse input measurements, as an interdisciplinary feasibility study with a medical AI focus.",
     "bullets": [
-      "Compared multiple network architectures (CNNs, U-Nets)",
       "Built an end-to-end pipeline from raw measurements to evaluation",
+      "Worked with real clinical data and challenges",
       "Grade: 1.3"
     ],
     "image": ""
