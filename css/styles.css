@@ -776,14 +776,33 @@ button {
   position: absolute;
   bottom: 0.75rem;
   right: 0.75rem;
-  font-size: 1.25rem;
+  font-size: 2.1rem;
   color: var(--color-text-muted);
-  transition: transform 0.3s, color 0.3s;
+  background: var(--color-bg-tag);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  padding: 0.25em;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s, background 0.2s, box-shadow 0.2s;
+  outline: none;
+  border: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-card:hover > .expand-icon {
   color: var(--color-accent);
+  background: var(--color-accent-container);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  border-color: var(--color-accent);
 }
+  /* Keyboard focus style */
+  &:focus {
+    border-color: var(--color-accent);
+    background: var(--color-accent-container);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
 
 .project-card.open > .expand-icon {
   transform: rotate(180deg);

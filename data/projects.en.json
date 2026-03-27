@@ -22,10 +22,15 @@
     "longDescription": "Team project (3 members) at the University of Freiburg. Built a framework for systematic evaluation and comparison of deep learning optimizers across multiple model sizes and domains. Resulted in a workshop paper.",
     "bullets": [
       "Designed reproducible optimizer comparisons",
-      "Automated experiments and evaluation",
-      "arXiv: https://doi.org/10.48550/arXiv.2406.18701"
+      "Automated experiments and evaluation"
     ],
-    "image": ""
+    "image": "",
+    "links": [
+      {
+        "label": "arXiv: 10.48550/arXiv.2406.18701",
+        "url": "https://doi.org/10.48550/arXiv.2406.18701"
+      }
+    ]
   },
   {
     "id": "03",
@@ -79,9 +84,20 @@
     "bullets": [
       "Cross-functional teamwork under tight deadlines",
       "Automated build pipelines",
-      "Rapid game design and implementation"
+      "Rapid game design and implementation",
+      "For example, Ludum Dare 46, 47, 49, 50, 51 (Team: FachschaftTF)"
     ],
-    "image": ""
+    "image": "",
+    "links": [
+      {
+        "label": "Ludum Dare Team Games (FachschaftTF)",
+        "url": "https://ldjam.com/users/fachscahfttf/games"
+      },
+      {
+        "label": "My Ludum Dare Games (ethereal)",
+        "url": "https://ldjam.com/users/ethereal/games"
+      }
+    ]
   },
   {
     "id": "07",

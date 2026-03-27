@@ -22,10 +22,15 @@
     "longDescription": "Teamprojekt (3 Personen) an der Universität Freiburg. Entwicklung eines Frameworks zur systematischen Evaluation und Vergleich von Optimierern für Deep Learning. Veröffentlichung als Workshop-Paper, inklusive Implementierung verschiedener Pipelines und Domänen.",
     "bullets": [
       "Vergleich und Analyse von Optimierern",
-      "Automatisierte Experimente und Auswertung",
-      "arXiv: https://doi.org/10.48550/arXiv.2406.18701"
+      "Automatisierte Experimente und Auswertung"
     ],
-    "image": ""
+    "image": "",
+    "links": [
+      {
+        "label": "arXiv: 10.48550/arXiv.2406.18701",
+        "url": "https://doi.org/10.48550/arXiv.2406.18701"
+      }
+    ]
   },
   {
     "id": "03",
@@ -79,9 +84,20 @@
     "bullets": [
       "Teamarbeit und schnelle Prototypen",
       "Automatisierte Build-Pipelines",
-      "Game Design und Entwicklung"
+      "Game Design und Entwicklung",
+      "Zum Beispiel Ludum Dare 46, 47, 49, 50, 51 (Team: FachschaftTF)"
     ],
-    "image": ""
+    "image": "",
+    "links": [
+      {
+        "label": "Ludum Dare Team-Spiele (FachschaftTF)",
+        "url": "https://ldjam.com/users/fachscahfttf/games"
+      },
+      {
+        "label": "Meine Ludum Dare Spiele (ethereal)",
+        "url": "https://ldjam.com/users/ethereal/games"
+      }
+    ]
   },
   {
     "id": "07",

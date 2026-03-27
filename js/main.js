@@ -115,9 +115,12 @@ function bindGlobalEvents() {
       return;
     }
 
-    const card = e.target.closest(".project-card");
-    if (card && !e.target.closest("a")) {
-      card.classList.toggle("open");
+    const expandIcon = e.target.closest(".expand-icon");
+    if (expandIcon) {
+      const card = expandIcon.closest(".project-card");
+      if (card) {
+        card.classList.toggle("open");
+      }
       return;
     }
   });
@@ -374,7 +377,7 @@ function renderProjects(projects, taxonomy) {
           : "";
 
       const detailLinksHTML =
-        project.links && project.links.length
+        Array.isArray(project.links) && project.links.length
           ? `<div class="details-links">${project.links
               .map(
                 (link) =>
@@ -408,7 +411,7 @@ function renderProjects(projects, taxonomy) {
               </div>
             </div>
           </div>
-          <span class="material-symbols-outlined expand-icon">expand_more</span>
+          <span class="material-symbols-outlined expand-icon" tabindex="0" role="button" aria-label="Expand/collapse project details">expand_more</span>
         </article>`;
     })
     .join("");
