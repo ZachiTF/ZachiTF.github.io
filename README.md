@@ -11,9 +11,31 @@ Project tags remain the single source of truth in:
 Grouping and color logic is centralized in:
 - `data/skill-taxonomy.json`
 
+
+## Git hook setup (lightweight)
+
+This repo uses a simple tracked git hook script in `scripts/pre-commit`.
+
+After cloning, install the local hook with:
+
+```sh
+bash scripts/install-hooks.sh
+```
+
+The hook runs on every commit and updates `lastEditedAt` in profile JSONs.
+
+Linting is optional and can be run manually:
+
+```sh
+npm install
+npm run lint
+```
+
+---
+
 ### How it works
 
-- Use pre-commit to automatically stamp the date with each change
+- Use pre-commit hook to automatically stamp the date with each commit
 - Every project keeps detailed raw tags (e.g. `Python`, `C#`, `Deep Learning`).
 - The UI maps each raw tag to a group via `skillToGroup` in `skill-taxonomy.json`.
 - Sidebar filters are shown by group (not by every single raw tag) to keep filtering clean.

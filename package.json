@@ -1,0 +1,18 @@
+{
+  "name": "zachitf-github-io",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portfolio site linting and pre-commit setup",
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:format",
+    "lint:js": "eslint \"js/**/*.js\"",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:format": "prettier --check \"**/*.{html,json,md,yml,yaml}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.8.2",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
