@@ -1,76 +1,43 @@
 [
   {
-    "id": "09",
-    "category": "Deep Learning / Medical AI",
-    "title": "Master's Thesis: Deep Learning for Dose Prediction",
-    "tags": ["Python", "PyTorch", "Julia", "Dosimetry"],
-    "description": "Investigation of deep learning methods for dose prediction from sparse measurements in radiotherapy.",
-    "longDescription": "Master's thesis in collaboration with PTW Freiburg. Built and benchmarked neural networks to predict radiation dose distributions from sparse input measurements, as an interdisciplinary feasibility study with a medical AI focus.",
+    "id": "01",
+    "category": "Game Dev / AI",
+    "title": "Indie Game Development",
+    "tags": ["Godot", "C#", "Python", "Reinforcement Learning", "Docker"],
+    "description": "Indie game developed in a two-person team.",
+    "longDescription": "Ongoing project targeting a Steam release. Includes experimentation with reinforcement learning and containerized learning environments.",
     "bullets": [
-      "Built an end-to-end pipeline from raw measurements to evaluation",
-      "Worked with real clinical data and challenges",
-      "Grade: 1.3"
+      "Game design and development in Godot",
+      "RL experiments for gameplay mechanics",
+      "Docker-based development environment"
     ],
     "image": ""
   },
   {
-    "id": "08",
-    "category": "Deep Learning / Benchmarking",
-    "title": "Fast Optimizer Benchmark (FOB)",
-    "tags": ["Python", "PyTorch", "PyTorch Lightning", "Deep Learning"],
-    "description": "Framework for benchmarking deep learning optimizers.",
-    "longDescription": "Team project (3 members) at the University of Freiburg. Built a framework for systematic evaluation and comparison of deep learning optimizers across multiple model sizes and domains. Resulted in a workshop paper.",
+    "id": "02",
+    "category": "Web / Tools",
+    "title": "Progress Tracker Web App",
+    "tags": ["JavaScript", "HTML", "CSS", "REST API Integration"],
+    "description": "Web tool to track progress in an online game.",
+    "longDescription": "Single-page application hosted on GitHub Pages and used by friends and me. Includes filtering, local persistence, and export/import support.",
     "bullets": [
-      "Designed reproducible optimizer comparisons",
-      "Automated experiments and evaluation"
-    ],
-    "image": "",
-    "links": [
-      {
-        "label": "arXiv: 10.48550/arXiv.2406.18701",
-        "url": "https://doi.org/10.48550/arXiv.2406.18701"
-      }
-    ]
-  },
-  {
-    "id": "07",
-    "category": "Computer Vision / Deep Learning",
-    "title": "Deep Learning Lab: Uncertainty Estimation for Monocular Depth",
-    "tags": ["Python", "Deep Learning", "Computer Vision", "Reinforcement Learning"],
-    "description": "Final project in the Deep Learning Lab on uncertainty estimation for monocular depth prediction.",
-    "longDescription": "Hands-on graduate lab covering deep learning, reinforcement learning, and computer vision. Final project focused on modeling and evaluating uncertainty in monocular depth estimation.",
-    "bullets": [
-      "Implemented and trained CNN-based models",
-      "Evaluated uncertainty metrics",
-      "Applied methods on real image data"
+      "SPA with filtering and data export",
+      "Client-side persistence",
+      "REST API integration"
     ],
     "image": ""
   },
   {
-    "id": "06",
-    "category": "Algorithm Design / Distributed Systems",
-    "title": "Bachelor's Thesis: Distributed Graph Algorithms in the LogP Model",
-    "tags": ["Algorithm Design", "Distributed Algorithms", "Mathematical Analysis"],
-    "description": "Designed and analyzed distributed algorithms in the LogP model.",
-    "longDescription": "Bachelor's thesis at the University of Freiburg with a focus on theoretical computer science. Developed and analyzed distributed graph algorithms, including mathematical derivations and complexity analysis.",
+    "id": "03",
+    "category": "Web / Learning Tools",
+    "title": "MKDocs Learning Websites",
+    "tags": ["Markdown", "MkDocs", "GitLab Pages", "Documentation"],
+    "description": "Course-note websites built and hosted with MkDocs.",
+    "longDescription": "Personal project to create and host lecture summaries for myself and fellow students using MkDocs and GitLab Pages, with content authored in Markdown.",
     "bullets": [
-      "Designed and analyzed algorithmic approaches",
-      "Derived runtime/complexity bounds",
-      "Strong focus on theory"
-    ],
-    "image": ""
-  },
-  {
-    "id": "05",
-    "category": "Procedural Generation / Game Dev",
-    "title": "Procedural Tilemap Generation using Markov-Chain Wave Function Collapse",
-    "tags": ["Unity", "C#", "Algorithm Design", "Procedural Generation", "Tilemap", "Visualization"],
-    "description": "Tool for procedural tilemap generation in Unity.",
-    "longDescription": "Bachelor project implementing a Markov-Chain Wave Function Collapse approach for procedural tilemap generation. Included algorithm implementation and in-engine visualization tooling.",
-    "bullets": [
-      "Implemented generation algorithm in Unity",
-      "Built visualization and editor tooling",
-      "Applied to game-ready content workflows"
+      "Markdown-first documentation workflow",
+      "Automated deployment to GitLab Pages",
+      "Useful learning resource for peers"
     ],
     "image": ""
   },
@@ -100,44 +67,77 @@
     ]
   },
   {
-    "id": "03",
-    "category": "Web / Learning Tools",
-    "title": "MKDocs Learning Websites",
-    "tags": ["Markdown", "MkDocs", "GitLab Pages", "Documentation"],
-    "description": "Course-note websites built and hosted with MkDocs.",
-    "longDescription": "Personal project to create and host lecture summaries for myself and fellow students using MkDocs and GitLab Pages, with content authored in Markdown.",
+    "id": "05",
+    "category": "Procedural Generation / Game Dev",
+    "title": "Procedural Tilemap Generation using Markov-Chain Wave Function Collapse",
+    "tags": ["Unity", "C#", "Algorithm Design", "Procedural Generation", "Tilemap", "Visualization"],
+    "description": "Tool for procedural tilemap generation in Unity.",
+    "longDescription": "Bachelor project implementing a Markov-Chain Wave Function Collapse approach for procedural tilemap generation. Included algorithm implementation and in-engine visualization tooling.",
     "bullets": [
-      "Markdown-first documentation workflow",
-      "Automated deployment to GitLab Pages",
-      "Useful learning resource for peers"
+      "Implemented generation algorithm in Unity",
+      "Built visualization and editor tooling",
+      "Applied to game-ready content workflows"
     ],
     "image": ""
   },
   {
-    "id": "02",
-    "category": "Web / Tools",
-    "title": "Progress Tracker Web App",
-    "tags": ["JavaScript", "HTML", "CSS", "REST API Integration"],
-    "description": "Web tool to track progress in an online game.",
-    "longDescription": "Single-page application hosted on GitHub Pages and used by friends and me. Includes filtering, local persistence, and export/import support.",
+    "id": "06",
+    "category": "Algorithm Design / Distributed Systems",
+    "title": "Bachelor's Thesis: Distributed Graph Algorithms in the LogP Model",
+    "tags": ["Algorithm Design", "Distributed Algorithms", "Mathematical Analysis"],
+    "description": "Designed and analyzed distributed algorithms in the LogP model.",
+    "longDescription": "Bachelor's thesis at the University of Freiburg with a focus on theoretical computer science. Developed and analyzed distributed graph algorithms, including mathematical derivations and complexity analysis.",
     "bullets": [
-      "SPA with filtering and data export",
-      "Client-side persistence",
-      "REST API integration"
+      "Designed and analyzed algorithmic approaches",
+      "Derived runtime/complexity bounds",
+      "Strong focus on theory"
     ],
     "image": ""
   },
   {
-    "id": "01",
-    "category": "Game Dev / AI",
-    "title": "Indie Game Development",
-    "tags": ["Godot", "C#", "Python", "Reinforcement Learning", "Docker"],
-    "description": "Indie game developed in a two-person team.",
-    "longDescription": "Ongoing project targeting a Steam release. Includes experimentation with reinforcement learning and containerized learning environments.",
+    "id": "07",
+    "category": "Computer Vision / Deep Learning",
+    "title": "Deep Learning Lab: Uncertainty Estimation for Monocular Depth",
+    "tags": ["Python", "Deep Learning", "Computer Vision", "Reinforcement Learning"],
+    "description": "Final project in the Deep Learning Lab on uncertainty estimation for monocular depth prediction.",
+    "longDescription": "Hands-on graduate lab covering deep learning, reinforcement learning, and computer vision. Final project focused on modeling and evaluating uncertainty in monocular depth estimation.",
     "bullets": [
-      "Game design and development in Godot",
-      "RL experiments for gameplay mechanics",
-      "Docker-based development environment"
+      "Implemented and trained CNN-based models",
+      "Evaluated uncertainty metrics",
+      "Applied methods on real image data"
+    ],
+    "image": ""
+  },
+  {
+    "id": "08",
+    "category": "Deep Learning / Benchmarking",
+    "title": "Fast Optimizer Benchmark (FOB)",
+    "tags": ["Python", "PyTorch", "PyTorch Lightning", "Deep Learning"],
+    "description": "Framework for benchmarking deep learning optimizers.",
+    "longDescription": "Team project (3 members) at the University of Freiburg. Built a framework for systematic evaluation and comparison of deep learning optimizers across multiple model sizes and domains. Resulted in a workshop paper.",
+    "bullets": [
+      "Designed reproducible optimizer comparisons",
+      "Automated experiments and evaluation"
+    ],
+    "image": "",
+    "links": [
+      {
+        "label": "arXiv: 10.48550/arXiv.2406.18701",
+        "url": "https://doi.org/10.48550/arXiv.2406.18701"
+      }
+    ]
+  },
+  {
+    "id": "09",
+    "category": "Deep Learning / Medical AI",
+    "title": "Master's Thesis: Deep Learning for Dose Prediction",
+    "tags": ["Python", "PyTorch", "Julia", "Dosimetry"],
+    "description": "Investigation of deep learning methods for dose prediction from sparse measurements in radiotherapy.",
+    "longDescription": "Master's thesis in collaboration with PTW Freiburg. Built and benchmarked neural networks to predict radiation dose distributions from sparse input measurements, as an interdisciplinary feasibility study with a medical AI focus.",
+    "bullets": [
+      "Built an end-to-end pipeline from raw measurements to evaluation",
+      "Worked with real clinical data and challenges",
+      "Grade: 1.3"
     ],
     "image": ""
   }
