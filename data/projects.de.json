@@ -8,7 +8,7 @@
     "longDescription": "Laufendes Projekt: Entwicklung eines Videospiels mit dem Ziel der Veröffentlichung auf Steam. Experimente mit Reinforcement Learning und Containerisierung der Lernumgebung.",
     "bullets": [
       "Game Design und Entwicklung in Godot",
-      "Reinforcement Learning für Spielmechaniken",
+      "Experimente mit Reinforcement Learning für Spielmechaniken",
       "Docker-basierte Entwicklungsumgebung"
     ],
     "image": ""

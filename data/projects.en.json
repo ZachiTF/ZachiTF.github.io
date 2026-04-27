@@ -8,7 +8,7 @@
     "longDescription": "Ongoing project targeting a Steam release. Includes experimentation with reinforcement learning and containerized learning environments.",
     "bullets": [
       "Game design and development in Godot",
-      "RL experiments for gameplay mechanics",
+      "Experimenting with Reinforcement learning for gameplay mechanics",
       "Docker-based development environment"
     ],
     "image": ""
