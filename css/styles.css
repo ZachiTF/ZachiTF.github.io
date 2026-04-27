@@ -41,12 +41,12 @@
   --color-group-game-dev-bg: #fef3c7;
   --color-group-game-dev-text: #92400e;
   --color-group-game-dev-border: #fcd34d;
-  --color-group-devops-tools-bg: #e0f2fe;
-  --color-group-devops-tools-text: #0c4a6e;
-  --color-group-devops-tools-border: #7dd3fc;
-  --color-group-domain-bg: #f3e8ff;
-  --color-group-domain-text: #7e22ce;
-  --color-group-domain-border: #d8b4fe;
+  --color-group-devops-tools-bg: #ffedd5;
+  --color-group-devops-tools-text: #7c2d12;
+  --color-group-devops-tools-border: #fb923c;
+  --color-group-domain-bg: #ccfbf1;
+  --color-group-domain-text: #134e4a;
+  --color-group-domain-border: #2dd4bf;
 }
 
 html.dark {
@@ -82,12 +82,12 @@ html.dark {
   --color-group-game-dev-bg: #78350f;
   --color-group-game-dev-text: #fef3c7;
   --color-group-game-dev-border: #f59e0b;
-  --color-group-devops-tools-bg: #164e63;
-  --color-group-devops-tools-text: #e0f2fe;
-  --color-group-devops-tools-border: #0ea5e9;
-  --color-group-domain-bg: #581c87;
-  --color-group-domain-text: #f3e8ff;
-  --color-group-domain-border: #a855f7;
+  --color-group-devops-tools-bg: #7c2d12;
+  --color-group-devops-tools-text: #ffedd5;
+  --color-group-devops-tools-border: #f97316;
+  --color-group-domain-bg: #134e4a;
+  --color-group-domain-text: #ccfbf1;
+  --color-group-domain-border: #14b8a6;
 }
 
 body {
