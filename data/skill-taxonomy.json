@@ -51,8 +51,9 @@
     "deep learning": "ai_ml",
     "computer vision": "ai_ml",
     "reinforcement learning": "ai_ml",
-    "bci": "ai_ml",
-    "eeg": "ai_ml",
+    "visualization": "ai_ml",
+    "visualisierung": "ai_ml",
+    "generative ai": "ai_ml",
 
     "algorithm design": "algorithms",
     "algorithmendesign": "algorithms",
@@ -73,8 +74,6 @@
     "tilemap": "game_dev",
     "procedural generation": "game_dev",
     "prozedurale generierung": "game_dev",
-    "visualization": "game_dev",
-    "visualisierung": "game_dev",
 
     "docker": "devops_tools",
     "ci/cd": "devops_tools",
@@ -85,7 +84,9 @@
     "wissenschaftliches schreiben": "devops_tools",
 
     "dosimetry": "domain",
-    "dosimetrie": "domain"
+    "dosimetrie": "domain",
+    "bci": "domain",
+    "eeg": "domain"
   },
   "fallbackGroup": "domain"
 }
