@@ -24,6 +24,7 @@ const UI_TEXT = {
     filterStatus: (visible, total, filters) =>
       `Showing ${visible} of ${total} projects matching groups: ${filters}`,
     clearStatus: "Clear",
+    filteredOutLabel: "Other projects",
     loadError:
       "Failed to load project data. Make sure language JSON files and skill-taxonomy.json exist in the data folder.",
     langTitle: "Switch language",
@@ -40,6 +41,7 @@ const UI_TEXT = {
     filterStatus: (visible, total, filters) =>
       `Zeige ${visible} von ${total} Projekten passend zu Gruppen: ${filters}`,
     clearStatus: "Zurücksetzen",
+    filteredOutLabel: "Weitere Projekte",
     loadError:
       "Projektdaten konnten nicht geladen werden. Stelle sicher, dass die Sprach-JSON-Dateien und skill-taxonomy.json im data-Ordner vorhanden sind.",
     langTitle: "Sprache wechseln",
@@ -348,7 +350,7 @@ function renderHero(profile) {
   if (subtitle) subtitle.textContent = profile.heroSubtitle || "";
 }
 
-function renderProjects(projects, taxonomy) {
+function renderProjects(projects, taxonomy, t) {
   const list = document.getElementById("project-list");
   if (!list) return;
 
@@ -417,6 +419,12 @@ function renderProjects(projects, taxonomy) {
         </article>`;
     })
     .join("");
+
+  const sep = document.createElement("div");
+  sep.className = "project-list-separator";
+  sep.id = "project-list-separator";
+  sep.innerHTML = `<span class="font-label">${escapeHTML(t?.filteredOutLabel || "Other projects")}</span>`;
+  list.appendChild(sep);
 }
 
 function getProjectGroupIds(project, taxonomy) {
@@ -477,15 +485,18 @@ function applyFilters() {
   const indicator = document.getElementById("filter-indicator");
   const statusBar = document.getElementById("filter-status");
   const drawerIndicator = document.querySelector("#drawer-mirror .filter-indicator");
+  const separator = document.getElementById("project-list-separator");
 
   if (state.activeFilters.size === 0) {
     cards.forEach((card) => card.classList.remove("hidden-filtered"));
     if (indicator) indicator.classList.remove("active");
     if (drawerIndicator) drawerIndicator.classList.remove("active");
     if (statusBar) statusBar.classList.remove("active");
+    if (separator) separator.classList.remove("active");
   } else {
     if (indicator) indicator.classList.add("active");
     if (drawerIndicator) drawerIndicator.classList.add("active");
+    if (separator) separator.classList.add("active");
 
     let visibleCount = 0;
     cards.forEach((card) => {
