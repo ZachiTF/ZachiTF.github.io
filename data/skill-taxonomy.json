@@ -54,6 +54,8 @@
     "visualization": "ai_ml",
     "visualisierung": "ai_ml",
     "generative ai": "ai_ml",
+    "langchain": "ai_ml",
+    "ollama": "ai_ml",
 
     "algorithm design": "algorithms",
     "algorithmendesign": "algorithms",

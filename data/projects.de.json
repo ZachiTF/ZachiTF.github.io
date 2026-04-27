@@ -140,5 +140,26 @@
       "Note: 1,3"
     ],
     "image": ""
+  },
+  {
+    "id": "10",
+    "category": "GenAI / Chat Bot",
+    "title": "Lokaler Chat Bot mit semantischer Suche",
+    "tags": ["Python", "Docker", "Generative AI", "LangChain", "Ollama"],
+    "description": "Lokale RAG-Infrastruktur: Lokale Textanalyse mit Ollama & LangChain",
+    "longDescription": "Komplett lokal laufende Retrieval-Augmented Generation (RAG) Infrastruktur. Dokumente werden lokal analysiert um semantische Suche und Antwortgenerierung zu verbessern. Interaktion mit dem System über eine einfache Website.",
+    "bullets": [
+      "Containerisierung mithilfe von Docker",
+      "Nutzung von Ollama für lokale KI-Modelle",
+      "Integration von LangChain für Dokumentenverarbeitung des RAG-Workflows",
+      "Gradio Web-Interface für Interaktion"
+    ],
+    "image": "",
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/ZachiTF/local-rag-explorer"
+      }
+    ]
   }
 ]
