@@ -161,6 +161,8 @@ async function loadAndRender(lang) {
       projectsResponse.json(),
     ]);
 
+    projects.sort((a, b) => b.id.localeCompare(a.id));
+
     state.lang = lang;
     state.profile = profile;
     state.projects = projects;
