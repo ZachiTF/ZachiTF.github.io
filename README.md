@@ -1,6 +1,18 @@
 # ZachiTF.github.io
 
-[My Portfolio](https://zachitf.github.io/)
+The Portfolio can be viewed here [https://zachitf.github.io/](https://zachitf.github.io/).
+
+For a local version (if you wanna build yours with the same setup), host it locally e.g. with
+
+```bash
+# live reloading
+npx live-server
+
+# or simply
+python3 -m http.server 8080
+```
+
+and find it on `http://localhost:8080/`
 
 ## Skill grouping system
 
@@ -44,7 +56,7 @@ npm run lint
 ### Add / change a skill mapping
 
 1. Keep or add the raw tag in a project JSON file.
-2. Add/update the normalized key in `skillToGroup`.
+2. Add/update the normalized key in `skillToGroup` in [skill-taxonomy.json](data/skill-taxonomy.json).
 3. If needed, add a new group in `groups` and `groupOrder`.
 4. Add matching CSS color tokens/classes in `css/styles.css`.
 
